@@ -12,19 +12,19 @@ path and type in the `overrides` list.
 ```yaml
 version: "2"
 sql:
-- schema: "postgresql/schema.sql"
-  queries: "postgresql/query.sql"
-  engine: "postgresql"
-  gen:
-    go: 
-      package: "authors"
-      out: "db"
-      sql_package: "pgx/v5"
-      overrides:
-        - db_type: "uuid"
-          go_type:
-            import: "github.com/google/uuid"
-            type: "UUID"
+  - schema: "postgresql/schema.sql"
+    queries: "postgresql/query.sql"
+    engine: "postgresql"
+    gen:
+      go:
+        package: "authors"
+        out: "db"
+        sql_package: "pgx/v5"
+        overrides:
+          - db_type: "uuid"
+            go_type:
+              import: "github.com/google/uuid"
+              type: "UUID"
 ```
 
 ## The `overrides` list
@@ -32,7 +32,7 @@ sql:
 Each element in the `overrides` list has the following keys:
 
 - `db_type`:
-  - A database type to override. Find the full list of supported types in [postgresql_type.go](https://github.com/sqlc-dev/sqlc/blob/main/internal/codegen/golang/postgresql_type.go#L12) or [mysql_type.go](https://github.com/sqlc-dev/sqlc/blob/main/internal/codegen/golang/mysql_type.go#L12). Note that for Postgres you must use pg_catalog-prefixed names where available. `db_type` and `column` are mutually exclusive.
+  - A database type to override. Find the full list of supported types in [postgresql_type.go](https://github.com/sharpvik/sqlc/blob/main/internal/codegen/golang/postgresql_type.go#L12) or [mysql_type.go](https://github.com/sharpvik/sqlc/blob/main/internal/codegen/golang/mysql_type.go#L12). Note that for Postgres you must use pg_catalog-prefixed names where available. `db_type` and `column` are mutually exclusive.
 - `column`:
   - A column name to override. The value should be of the form `table.column` but you can also specify `schema.table.column` or `catalog.schema.table.column`. `column` and `db_type` are mutually exclusive.
 - `go_type`:
@@ -76,19 +76,19 @@ An example:
 ```yaml
 version: "2"
 sql:
-- schema: "postgresql/schema.sql"
-  queries: "postgresql/query.sql"
-  engine: "postgresql"
-  gen:
-    go: 
-      package: "authors"
-      out: "db"
-      sql_package: "pgx/v5"
-      overrides:
-        - db_type: "uuid"
-          go_type:
-            import: "a/b/v2"
-            package: "b"
-            type: "MyType"
-            pointer: true
+  - schema: "postgresql/schema.sql"
+    queries: "postgresql/query.sql"
+    engine: "postgresql"
+    gen:
+      go:
+        package: "authors"
+        out: "db"
+        sql_package: "pgx/v5"
+        overrides:
+          - db_type: "uuid"
+            go_type:
+              import: "a/b/v2"
+              package: "b"
+              type: "MyType"
+              pointer: true
 ```

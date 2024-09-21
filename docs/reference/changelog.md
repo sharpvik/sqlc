@@ -1,8 +1,11 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 (v1-27-0)=
-## [1.27.0](https://github.com/sqlc-dev/sqlc/releases/tag/1.27.0)
+
+## [1.27.0](https://github.com/sharpvik/sqlc/releases/tag/1.27.0)
+
 Released 2024-08-05
 
 ### Bug Fixes
@@ -14,7 +17,7 @@ Released 2024-08-05
 
 - (golang) Add initialisms configuration (#3308)
 - (compiler) Support subqueries in the FROM clause (second coming) (#3310)
-- Managed databases with any accessible server  (#3421)
+- Managed databases with any accessible server (#3421)
 - (vet) Use new dbmanager client (#3423)
 - (verify) Update verify to work with managed databases (#3425)
 
@@ -40,12 +43,14 @@ Released 2024-08-05
 - Remove internal/sqltest/hosted package (#3521)
 
 (v1-26-0)=
-## [1.26.0](https://github.com/sqlc-dev/sqlc/releases/tag/1.26.0)
+
+## [1.26.0](https://github.com/sharpvik/sqlc/releases/tag/1.26.0)
+
 Released 2024-03-28
 
 ### Release notes
 
-This release is mainly a bug fix release. It also includes an [important security fix](https://github.com/sqlc-dev/sqlc/issues/3194) for users using output plugins.
+This release is mainly a bug fix release. It also includes an [important security fix](https://github.com/sharpvik/sqlc/issues/3194) for users using output plugins.
 
 ### Changes
 
@@ -80,9 +85,10 @@ This release is mainly a bug fix release. It also includes an [important securit
 - (deps) Bump github.com/tetratelabs/wazero to 1.7.0 (#3096)
 - (deps) Bump github.com/pganalyze/pg_query_go to v5 (#3096)
 
-
 (v1-25-0)=
-## [1.25.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.25.0)
+
+## [1.25.0](https://github.com/sharpvik/sqlc/releases/tag/v1.25.0)
+
 Released 2024-01-03
 
 ### Release notes
@@ -118,9 +124,9 @@ With the help of the community, we found cgo-free alternatives for each module:
 
 For the first time, Windows users can enjoy full PostgreSQL support without using [WSL](https://learn.microsoft.com/en-us/windows/wsl/about). It's a Christmas miracle!
 
-If you run into any issues with the updated dependencies, please [open an issue](https://github.com/sqlc-dev/sqlc/issues).
+If you run into any issues with the updated dependencies, please [open an issue](https://github.com/sharpvik/sqlc/issues).
 
-### Changes 
+### Changes
 
 #### Bug Fixes
 
@@ -176,7 +182,9 @@ If you run into any issues with the updated dependencies, please [open an issue]
 - (sqlite) Switch from mattn/go-sqlite3 to modernc.org/sqlite (#3040)
 
 (v1-24-0)=
-## [1.24.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.24.0)
+
+## [1.24.0](https://github.com/sharpvik/sqlc/releases/tag/v1.24.0)
+
 Released 2023-11-22
 
 ### Release notes
@@ -271,7 +279,7 @@ The `createdb` command, added in the last release, now supports MySQL. If you ha
 
 This release includes a refactored plugin interface to better support future functionality. Plugins now support different methods via a gRPC service interface, allowing plugins to support different functionality in a backwards-compatible way.
 
-By using gRPC interfaces, we can even (theoretically) support [remote plugins](https://github.com/sqlc-dev/sqlc/pull/2938), but that's something for another day.
+By using gRPC interfaces, we can even (theoretically) support [remote plugins](https://github.com/sharpvik/sqlc/pull/2938), but that's something for another day.
 
 ### Changes
 
@@ -322,7 +330,9 @@ By using gRPC interfaces, we can even (theoretically) support [remote plugins](h
 - (ci) Bump Go version from 1.21.3 to 1.21.4 in workflows and Dockerfile (#2961)
 
 (v1-23-0)=
-## [1.23.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.23.0)
+
+## [1.23.0](https://github.com/sharpvik/sqlc/releases/tag/v1.23.0)
+
 Released 2023-10-24
 
 ### Release notes
@@ -332,11 +342,11 @@ Released 2023-10-24
 With a [database connection](config.md#database) configured, `sqlc generate`
 will gather metadata from that database to support its query analysis.
 Turning this on resolves a [large number of
-issues](https://github.com/sqlc-dev/sqlc/issues?q=is%3Aissue+label%3Aanalyzer)
+issues](https://github.com/sharpvik/sqlc/issues?q=is%3Aissue+label%3Aanalyzer)
 in the backlog related to type inference and more complex queries. The easiest
 way to try it out is with [managed databases](../howto/managed-databases.md).
 
-The database-backed analyzer currently supports PostgreSQL, with [MySQL](https://github.com/sqlc-dev/sqlc/issues/2902) and [SQLite](https://github.com/sqlc-dev/sqlc/issues/2903)
+The database-backed analyzer currently supports PostgreSQL, with [MySQL](https://github.com/sharpvik/sqlc/issues/2902) and [SQLite](https://github.com/sharpvik/sqlc/issues/2903)
 support planned in the future.
 
 #### New `createdb` command
@@ -452,9 +462,10 @@ for sqlc to add at the top of generated source files.
 
 - Bump go version in workflows (#2835)
 
-
 (v1-22-0)=
-## [1.22.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.22.0)
+
+## [1.22.0](https://github.com/sharpvik/sqlc/releases/tag/v1.22.0)
+
 Released 2023-09-26
 
 ### Release notes
@@ -525,9 +536,10 @@ Read more in the [managed databases](../howto/managed-databases.md) documentatio
 
 - Bump go version to latest in ci workflows (#2722)
 
-
 (v1-21-0)=
-## [1.21.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.21.0)
+
+## [1.21.0](https://github.com/sharpvik/sqlc/releases/tag/v1.21.0)
+
 Released 2023-09-06
 
 ### Release notes
@@ -558,21 +570,21 @@ needs the `PATH` environment variable, add `PATH` to the `env` list in the
 `plugins` collection.
 
 ```yaml
-version: '2'
+version: "2"
 sql:
-- schema: schema.sql
-  queries: query.sql
-  engine: postgresql
-  codegen:
-  - out: gen
-    plugin: test
+  - schema: schema.sql
+    queries: query.sql
+    engine: postgresql
+    codegen:
+      - out: gen
+        plugin: test
 plugins:
-- name: test
-  env:
-  - PATH
-  wasm:
-    url: https://github.com/sqlc-dev/sqlc-gen-test/releases/download/v0.1.0/sqlc-gen-test.wasm
-    sha256: 138220eae508d4b65a5a8cea555edd155eb2290daf576b7a8b96949acfeb3790
+  - name: test
+    env:
+      - PATH
+    wasm:
+      url: https://github.com/sharpvik/sqlc-gen-test/releases/download/v0.1.0/sqlc-gen-test.wasm
+      sha256: 138220eae508d4b65a5a8cea555edd155eb2290daf576b7a8b96949acfeb3790
 ```
 
 A variable named `SQLC_VERSION` is always included in the plugin's
@@ -610,7 +622,7 @@ environment, set to the version of the `sqlc` executable invoking it.
 - Update Docker installation instructions (#2552)
 - Missing emit_pointers_for_null_types configuration option in version 2 (#2682) (#2683)
 - Fix typo (#2697)
-- Document sqlc.* macros (#2698)
+- Document sqlc.\* macros (#2698)
 - (mysql) Document parseTimet=true requirement (#2699)
 - Add atlas to the list of supported migration frameworks (#2700)
 - Minor updates to insert howto (#2701)
@@ -658,24 +670,26 @@ environment, set to the version of the `sqlc` executable invoking it.
 - (devenv) Bump go from 1.20.7 to 1.21.0 (#2702)
 
 (v1-20-0)=
-## [1.20.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.20.0)
+
+## [1.20.0](https://github.com/sharpvik/sqlc/releases/tag/v1.20.0)
+
 Released 2023-07-31
 
 ### Release notes
 
 #### `kyleconroy/sqlc` is now `sqlc-dev/sqlc`
 
-We've completed our migration to the [sqlc-dev/sqlc](https://github.com/sqlc-dev/sqlc) repository. All existing links and installation instructions will continue to work. If you're using the `go` tool to install `sqlc`, you'll need to use the new import path to get v1.20.0 (and all future versions).
+We've completed our migration to the [sqlc-dev/sqlc](https://github.com/sharpvik/sqlc) repository. All existing links and installation instructions will continue to work. If you're using the `go` tool to install `sqlc`, you'll need to use the new import path to get v1.20.0 (and all future versions).
 
 ```sh
 # INCORRECT: old import path
 go install github.com/kyleconroy/sqlc/cmd/sqlc@v1.20.0
 
 # CORRECT: new import path
-go install github.com/sqlc-dev/sqlc/cmd/sqlc@v1.20.0
+go install github.com/sharpvik/sqlc/cmd/sqlc@v1.20.0
 ```
 
-We designed the upgrade process to be as smooth as possible. If you run into any issues, please [file a bug report](https://github.com/sqlc-dev/sqlc/issues/new?assignees=&labels=bug%2Ctriage&projects=&template=BUG_REPORT.yml) via GitHub.
+We designed the upgrade process to be as smooth as possible. If you run into any issues, please [file a bug report](https://github.com/sharpvik/sqlc/issues/new?assignees=&labels=bug%2Ctriage&projects=&template=BUG_REPORT.yml) via GitHub.
 
 #### Use `EXPLAIN ...` output in lint rules
 
@@ -696,10 +710,10 @@ sql:
     rules:
       - has-index
 rules:
-- name: has-index
-  rule: >
-    query.sql.startsWith("SELECT") &&
-    !(postgresql.explain.plan.plans.all(p, has(p.index_name) || p.plans.all(p, has(p.index_name))))
+  - name: has-index
+    rule: >
+      query.sql.startsWith("SELECT") &&
+      !(postgresql.explain.plan.plans.all(p, has(p.index_name) || p.plans.all(p, has(p.index_name))))
 ```
 
 The expression environment has two variables containing `EXPLAIN ...` output, `postgresql.explain` and `mysql.explain`. `sqlc` only populates the variable associated with your configured database engine, and only when you have a [database connection configured](../reference/config.md#database).
@@ -725,20 +739,21 @@ These proto message definitions are too long to include here, but you can find t
 The output from `EXPLAIN ...` depends on the structure of your query so it's a bit difficult to offer generic examples. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/current/using-explain.html) and [MySQL documentation](https://dev.mysql.com/doc/refman/en/explain-output.html) for more information.
 
 ```yaml
-...
+
+---
 rules:
-- name: postgresql-query-too-costly
-  message: "Query cost estimate is too high"
-  rule: "postgresql.explain.plan.total_cost > 1.0"
-- name: postgresql-no-seq-scan
-  message: "Query plan results in a sequential scan"
-  rule: "postgresql.explain.plan.node_type == 'Seq Scan'"
-- name: mysql-query-too-costly
-  message: "Query cost estimate is too high"
-  rule: "has(mysql.explain.query_block.cost_info) && double(mysql.explain.query_block.cost_info.query_cost) > 2.0"
-- name: mysql-must-use-primary-key
-  message: "Query plan doesn't use primary key"
-  rule: "has(mysql.explain.query_block.table.key) && mysql.explain.query_block.table.key != 'PRIMARY'"
+  - name: postgresql-query-too-costly
+    message: "Query cost estimate is too high"
+    rule: "postgresql.explain.plan.total_cost > 1.0"
+  - name: postgresql-no-seq-scan
+    message: "Query plan results in a sequential scan"
+    rule: "postgresql.explain.plan.node_type == 'Seq Scan'"
+  - name: mysql-query-too-costly
+    message: "Query cost estimate is too high"
+    rule: "has(mysql.explain.query_block.cost_info) && double(mysql.explain.query_block.cost_info.query_cost) > 2.0"
+  - name: mysql-must-use-primary-key
+    message: "Query plan doesn't use primary key"
+    rule: "has(mysql.explain.query_block.table.key) && mysql.explain.query_block.table.key != 'PRIMARY'"
 ```
 
 When building rules that depend on `EXPLAIN ...` output, it may be helpful to see the actual JSON returned from the database. `sqlc` will print it When you set the environment variable `SQLCDEBUG=dumpexplain=1`. Use this environment variable together with a dummy rule to see `EXPLAIN ...` output for all of your queries.
@@ -760,7 +775,7 @@ _Developed by [@Jille](https://github.com/Jille)_
 
 MySQL now supports the `:copyfrom` query annotation. The generated code uses the [LOAD DATA](https://dev.mysql.com/doc/refman/8.0/en/load-data.html) command to insert data quickly and efficiently.
 
-Use caution with this feature. Errors and duplicate keys are treated as warnings and insertion will continue, even without an error for some cases.  Use this in a transaction and use `SHOW WARNINGS` to check for any problems and roll back if necessary.
+Use caution with this feature. Errors and duplicate keys are treated as warnings and insertion will continue, even without an error for some cases. Use this in a transaction and use `SHOW WARNINGS` to check for any problems and roll back if necessary.
 
 Check the [error handling](https://dev.mysql.com/doc/refman/8.0/en/load-data.html#load-data-error-handling) documentation for more information.
 
@@ -893,8 +908,8 @@ A slew of fixes landed for our SQLite implementation, bringing it closer to pari
 - (deps) Bump google.golang.org/grpc from 1.56.2 to 1.57.0 (#2535)
 - (deps) Bump pyparsing from 3.1.0 to 3.1.1 in /docs (#2547)
 
+## [1.19.1](https://github.com/sharpvik/sqlc/releases/tag/v1.19.1)
 
-## [1.19.1](https://github.com/sqlc-dev/sqlc/releases/tag/v1.19.1)
 Released 2023-07-13
 
 ### Bug Fixes
@@ -914,7 +929,8 @@ Released 2023-07-13
 - Pin Go to 1.20.6 (#2441)
 - (deps) Bump github.com/jackc/pgx/v5 from 5.4.1 to 5.4.2 (#2436)
 
-## [1.19.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.19.0)
+## [1.19.0](https://github.com/sharpvik/sqlc/releases/tag/v1.19.0)
+
 Released 2023-07-06
 
 ### Release notes
@@ -992,7 +1008,7 @@ sql:
 ```
 
 To see this in action, check out the [authors
-example](https://github.com/sqlc-dev/sqlc/blob/main/examples/authors/sqlc.yaml).
+example](https://github.com/sharpvik/sqlc/blob/main/examples/authors/sqlc.yaml).
 
 Please note that `sqlc` does not manage or migrate your database. Use your
 migration tool of choice to create the necessary database tables and objects
@@ -1012,8 +1028,8 @@ more information.
 
 #### Simplified plugin development
 
-The [sqlc-gen-kotlin](https://github.com/sqlc-dev/sqlc-gen-kotlin) and
-[sqlc-gen-python](https://github.com/sqlc-dev/sqlc-gen-python) plugins have been
+The [sqlc-gen-kotlin](https://github.com/sharpvik/sqlc-gen-kotlin) and
+[sqlc-gen-python](https://github.com/sharpvik/sqlc-gen-python) plugins have been
 updated use the upcoming [WASI](https://wasi.dev/) support in [Go
 1.21](https://tip.golang.org/doc/go1.21#wasip1). Building these plugins no
 longer requires [TinyGo](https://tinygo.org/).
@@ -1031,7 +1047,7 @@ longer requires [TinyGo](https://tinygo.org/).
 - Resolve duplicate fields generated when inheriting multiple tables (#2089)
 - Check column references in ORDER BY (#1411) (#1915)
 - MySQL slice shadowing database/sql import (#2332)
-- Don't defer rows.Close() if pgx.BatchResults.Query() failed  (#2362)
+- Don't defer rows.Close() if pgx.BatchResults.Query() failed (#2362)
 - Fix type overrides not working with sqlc.slice (#2351)
 - Type overrides on columns for parameters inside an IN clause (#2352)
 - Broken interaction between query_parameter_limit and pq.Array() (#2383)
@@ -1046,6 +1062,7 @@ longer requires [TinyGo](https://tinygo.org/).
 - Add launch announcement banner
 
 #### Features
+
 - PostgreSQL capture correct line and column numbers for parse error (#2289)
 - Add supporting COMMENT ON VIEW (#2249)
 - To allow spaces between function name and arguments of functions to be rewritten (#2250)
@@ -1054,7 +1071,7 @@ longer requires [TinyGo](https://tinygo.org/).
 - Allow use of table and column aliases for table functions returning unknown types (#2156)
 - Support "LIMIT ?" in UPDATE and DELETE for MySQL (#2365)
 - (internal/codegen/golang) Omit unused structs from output (#2369)
-- Improve default names for BETWEEN ? AND ? to have prefixes from_ and to_ (#2366)
+- Improve default names for BETWEEN ? AND ? to have prefixes from* and to* (#2366)
 - (cmd/sqlc) Add the vet subcommand (#2344)
 - (sqlite) Add support for UPDATE/DELETE with a LIMIT clause (#2384)
 - Add support for BETWEEN sqlc.arg(min) AND sqlc.arg(max) (#2373)
@@ -1127,8 +1144,8 @@ longer requires [TinyGo](https://tinygo.org/).
 
 - Fixed sqlite column type override (#1986)
 
+## [1.18.0](https://github.com/sharpvik/sqlc/releases/tag/v1.18.0)
 
-## [1.18.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.18.0)
 Released 2023-04-27
 
 ### Release notes
@@ -1172,7 +1189,6 @@ When the `cloud` configuration block exists, `sqlc generate` will default to rem
 code generation. If you'd like to generate code locally without removing the `cloud`
 block from your config, pass the `--no-remote` option.
 
-
 ```bash
 sqlc generate --no-remote
 ```
@@ -1186,7 +1202,6 @@ _Developed by [@nickjackson](https://github.com/nickjackson)_
 Embedding allows you to reuse existing model structs in more queries, resulting
 in less manual serialization work. First, imagine we have the following schema
 with students and test scores.
-
 
 ```sql
 CREATE TABLE students (
@@ -1260,7 +1275,7 @@ number of parameters.
 
 ```sql
 /* name: SelectStudents :many */
-SELECT * FROM students 
+SELECT * FROM students
 WHERE age IN (sqlc.slice("ages"))
 ```
 
@@ -1271,7 +1286,7 @@ func (q *Queries) SelectStudents(ctx context.Context, ages []int32) ([]Student, 
 This feature is only supported in MySQL and cannot be used with prepared
 queries.
 
-#### Batch operation improvements  
+#### Batch operation improvements
 
 When using batches with pgx, the error returned when a batch is closed is
 exported by the generated package. This change allows for cleaner error
@@ -1296,8 +1311,8 @@ option.
 By default, sqlc will limit Go functions to a single parameter. If a query
 includes more than one parameter, the generated method will use an argument
 struct instead of positional arguments. This behavior can now be changed via
-the `query_parameter_limit` configuration option.  If set to `0`, every
-genreated method will use a argument struct. 
+the `query_parameter_limit` configuration option. If set to `0`, every
+genreated method will use a argument struct.
 
 ### Changes
 
@@ -1387,14 +1402,16 @@ genreated method will use a argument struct.
 
 - Upgrade to wasmtime v8.0.0 (#2222)
 
-## [1.17.2](https://github.com/sqlc-dev/sqlc/releases/tag/v1.17.2)
+## [1.17.2](https://github.com/sharpvik/sqlc/releases/tag/v1.17.2)
+
 Released 2023-02-22
 
 ### Bug Fixes
 
 - Fix build on Windows (#2102)
 
-## [1.17.1](https://github.com/sqlc-dev/sqlc/releases/tag/v1.17.1)
+## [1.17.1](https://github.com/sharpvik/sqlc/releases/tag/v1.17.1)
+
 Released 2023-02-22
 
 ### Bug Fixes
@@ -1411,7 +1428,8 @@ Released 2023-02-22
 
 - (deps) Bump golang from 1.20.0 to 1.20.1 (#2082)
 
-## [1.17.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.17.0)
+## [1.17.0](https://github.com/sharpvik/sqlc/releases/tag/v1.17.0)
+
 Released 2023-02-13
 
 ### Bug Fixes
@@ -1487,9 +1505,9 @@ Released 2023-02-13
 
 - Upgrade to wasmtime 5.0.0 (#2065)
 
-## [1.16.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.16.0)
-Released 2022-11-09
+## [1.16.0](https://github.com/sharpvik/sqlc/releases/tag/v1.16.0)
 
+Released 2022-11-09
 
 ### Bug Fixes
 
@@ -1559,7 +1577,8 @@ Released 2022-11-09
 - Port all Python tests to sqlc-gen-python (#1907)
 - Upgrade to sqlc-gen-python v1.0.0 (#1932)
 
-## [1.15.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.15.0)
+## [1.15.0](https://github.com/sharpvik/sqlc/releases/tag/v1.15.0)
+
 Released 2022-08-07
 
 ### Bug Fixes
@@ -1608,13 +1627,14 @@ Released 2022-08-07
 - (wasm) Change default cache location (#1709)
 - (wasm) Change the SHA-256 config key (#1710)
 
-## [1.14.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.14.0)
+## [1.14.0](https://github.com/sharpvik/sqlc/releases/tag/v1.14.0)
+
 Released 2022-06-09
 
 ### Bug Fixes
 
 - (postgresql) Remove extra newline with db argument (#1417)
-- (sqlite) Fix DROP TABLE   (#1443)
+- (sqlite) Fix DROP TABLE (#1443)
 - (compiler) Fix left join nullability with table aliases (#1491)
 - Regenerate testdata for CREATE TABLE AS (#1516)
 - (bundler) Only close multipart writer once (#1528)
@@ -1655,7 +1675,8 @@ Released 2022-06-09
 - (sql/catalog) Improve Readability (#1595)
 - Add basic fuzzing for config / overrides (#1500)
 
-## [1.13.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.13.0)
+## [1.13.0](https://github.com/sharpvik/sqlc/releases/tag/v1.13.0)
+
 Released 2022-03-31
 
 ### Bug Fixes
@@ -1693,7 +1714,8 @@ Released 2022-03-31
 
 - Add basic fuzzing for config / overrides (#1500)
 
-## [1.12.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.12.0)
+## [1.12.0](https://github.com/sharpvik/sqlc/releases/tag/v1.12.0)
+
 Released 2022-02-05
 
 ### Bug
@@ -1736,9 +1758,9 @@ Released 2022-02-05
 - Bump github.com/google/go-cmp from 0.5.6 to 0.5.7 (#1382)
 - Format all Go code (#1387)
 
-## [1.11.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.11.0)
-Released 2021-11-24
+## [1.11.0](https://github.com/sharpvik/sqlc/releases/tag/v1.11.0)
 
+Released 2021-11-24
 
 ### Bug Fixes
 
@@ -1801,9 +1823,9 @@ Released 2021-11-24
 
 - Bump version to v1.11.0
 
-## [1.10.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.10.0)
-Released 2021-09-07
+## [1.10.0](https://github.com/sharpvik/sqlc/releases/tag/v1.10.0)
 
+Released 2021-09-07
 
 ### Documentation
 
@@ -1845,9 +1867,9 @@ Released 2021-09-07
 
 - Output NullUUID when necessary (#1137)
 
-## [1.9.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.9.0)
-Released 2021-08-13
+## [1.9.0](https://github.com/sharpvik/sqlc/releases/tag/v1.9.0)
 
+Released 2021-08-13
 
 ### Documentation
 
@@ -1866,9 +1888,9 @@ Released 2021-08-13
 - Add tests for COALESCE behavior (#1112)
 - Handle subqueries in SELECT statements (#1113)
 
-## [1.8.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.8.0)
-Released 2021-05-03
+## [1.8.0](https://github.com/sharpvik/sqlc/releases/tag/v1.8.0)
 
+Released 2021-05-03
 
 ### Documentation
 
@@ -1925,9 +1947,9 @@ Released 2021-05-03
 
 - Only run tests once (#924)
 
-## [1.7.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.7.0)
-Released 2021-02-28
+## [1.7.0](https://github.com/sharpvik/sqlc/releases/tag/v1.7.0)
 
+Released 2021-02-28
 
 ### Bug Fixes
 
@@ -2011,9 +2033,9 @@ Released 2021-02-28
 
 - Add enum values for SetOperation
 
-## [1.6.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.6.0)
-Released 2020-11-23
+## [1.6.0](https://github.com/sharpvik/sqlc/releases/tag/v1.6.0)
 
+Released 2020-11-23
 
 ### Dolphin
 
@@ -2102,9 +2124,9 @@ Released 2020-11-23
 
 - Add support for variadic functions (#798)
 
-## [1.5.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.5.0)
-Released 2020-08-05
+## [1.5.0](https://github.com/sharpvik/sqlc/releases/tag/v1.5.0)
 
+Released 2020-08-05
 
 ### Documentation
 
@@ -2153,7 +2175,7 @@ Released 2020-08-05
 
 ### Endtoend
 
-- Add MySQL test for SELECT * JOIN (#565)
+- Add MySQL test for SELECT \* JOIN (#565)
 - Add MySQL test for inflection (#567)
 
 ### Engine
@@ -2205,9 +2227,9 @@ Released 2020-08-05
 
 - Migrate to equinox-io/setup-release-tool (#614)
 
-## [1.4.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.4.0)
-Released 2020-06-17
+## [1.4.0](https://github.com/sharpvik/sqlc/releases/tag/v1.4.0)
 
+Released 2020-06-17
 
 ### Dockerfile
 
@@ -2215,7 +2237,7 @@ Released 2020-06-17
 
 ### MySQL
 
-- Prevent Panic when WHERE clause contains parenthesis.  (#531)
+- Prevent Panic when WHERE clause contains parenthesis. (#531)
 
 ### README
 
@@ -2295,9 +2317,9 @@ Released 2020-06-17
 
 - Move query validation to separate package (#498)
 
-## [1.3.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.3.0)
-Released 2020-05-12
+## [1.3.0](https://github.com/sharpvik/sqlc/releases/tag/v1.3.0)
 
+Released 2020-05-12
 
 ### Makefile
 
@@ -2340,9 +2362,9 @@ Released 2020-05-12
 
 - Fix panic walking CreateTableAsStmt (#475)
 
-## [1.2.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.2.0)
-Released 2020-04-07
+## [1.2.0](https://github.com/sharpvik/sqlc/releases/tag/v1.2.0)
 
+Released 2020-04-07
 
 ### Documentation
 
@@ -2370,9 +2392,9 @@ Released 2020-04-07
 
 - Generate correct types for SELECT EXISTS (#411)
 
-## [1.1.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.1.0)
-Released 2020-03-17
+## [1.1.0](https://github.com/sharpvik/sqlc/releases/tag/v1.1.0)
 
+Released 2020-03-17
 
 ### README
 
@@ -2460,9 +2482,9 @@ Released 2020-03-17
 
 - Add experimental parser for SQLite
 
-## [1.0.0](https://github.com/sqlc-dev/sqlc/releases/tag/v1.0.0)
-Released 2020-02-18
+## [1.0.0](https://github.com/sharpvik/sqlc/releases/tag/v1.0.0)
 
+Released 2020-02-18
 
 ### Documentation
 
@@ -2547,9 +2569,9 @@ Released 2020-02-18
 - Attach range vars to insert params (#342)
 - Remove dead code (#343)
 
-## [0.1.0](https://github.com/sqlc-dev/sqlc/releases/tag/v0.1.0)
-Released 2020-01-07
+## [0.1.0](https://github.com/sharpvik/sqlc/releases/tag/v0.1.0)
 
+Released 2020-01-07
 
 ### Documentation
 

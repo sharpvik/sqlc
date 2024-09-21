@@ -4,10 +4,10 @@ import (
 	"log"
 	"strings"
 
-	"github.com/sqlc-dev/sqlc/internal/codegen/golang/opts"
-	"github.com/sqlc-dev/sqlc/internal/codegen/sdk"
-	"github.com/sqlc-dev/sqlc/internal/debug"
-	"github.com/sqlc-dev/sqlc/internal/plugin"
+	"github.com/sharpvik/sqlc/internal/codegen/golang/opts"
+	"github.com/sharpvik/sqlc/internal/codegen/sdk"
+	"github.com/sharpvik/sqlc/internal/debug"
+	"github.com/sharpvik/sqlc/internal/plugin"
 )
 
 func sqliteType(req *plugin.GenerateRequest, options *opts.Options, col *plugin.Column) string {

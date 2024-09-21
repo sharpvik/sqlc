@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/sqlc-dev/sqlc/internal/debug"
-	"github.com/sqlc-dev/sqlc/internal/metadata"
-	"github.com/sqlc-dev/sqlc/internal/opts"
-	"github.com/sqlc-dev/sqlc/internal/source"
-	"github.com/sqlc-dev/sqlc/internal/sql/ast"
-	"github.com/sqlc-dev/sqlc/internal/sql/astutils"
-	"github.com/sqlc-dev/sqlc/internal/sql/validate"
+	"github.com/sharpvik/sqlc/internal/debug"
+	"github.com/sharpvik/sqlc/internal/metadata"
+	"github.com/sharpvik/sqlc/internal/opts"
+	"github.com/sharpvik/sqlc/internal/source"
+	"github.com/sharpvik/sqlc/internal/sql/ast"
+	"github.com/sharpvik/sqlc/internal/sql/astutils"
+	"github.com/sharpvik/sqlc/internal/sql/validate"
 )
 
 func (c *Compiler) parseQuery(stmt ast.Node, src string, o opts.Parser) (*Query, error) {

@@ -16,13 +16,13 @@ sql:
 ```
 
 We've written extensive docs on [retrieving](select.md), [inserting](insert.md),
-[updating](update.md), and [deleting](delete.md) rows. 
+[updating](update.md), and [deleting](delete.md) rows.
 
 By default, sqlc runs its analysis using a built-in query analysis engine. While fast, this engine can't handle some complex queries and type-inference.
 
 You can configure sqlc to use a database connection for enhanced analysis using metadata from that database.
 
-The database-backed analyzer currently supports PostgreSQL, with [MySQL](https://github.com/sqlc-dev/sqlc/issues/2902) and [SQLite](https://github.com/sqlc-dev/sqlc/issues/2903)
+The database-backed analyzer currently supports PostgreSQL, with [MySQL](https://github.com/sharpvik/sqlc/issues/2902) and [SQLite](https://github.com/sharpvik/sqlc/issues/2903)
 support planned in the future.
 
 ## Enhanced analysis with managed databases
@@ -35,8 +35,8 @@ an up-to-date schema. Here's a minimal working configuration:
 ```yaml
 version: "2"
 servers:
-- engine: postgresql
-  uri: "postgres://locahost:5432/postgres?sslmode=disable"
+  - engine: postgresql
+    uri: "postgres://locahost:5432/postgres?sslmode=disable"
 sql:
   - engine: "postgresql"
     queries: "query.sql"

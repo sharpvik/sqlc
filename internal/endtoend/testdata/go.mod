@@ -1,4 +1,4 @@
-module github.com/sqlc-dev/sqlc/endtoend
+module github.com/sharpvik/sqlc/endtoend
 
 go 1.18
 
@@ -13,7 +13,7 @@ require (
 	github.com/jackc/pgx/v5 v5.4.3
 	github.com/lib/pq v1.9.0
 	github.com/sqlc-dev/pqtype v0.2.0
-	github.com/sqlc-dev/sqlc-testdata v1.0.0
+	github.com/sharpvik/sqlc-testdata v1.0.0
 	github.com/volatiletech/null/v8 v8.1.2
 	gopkg.in/guregu/null.v4 v4.0.0
 )

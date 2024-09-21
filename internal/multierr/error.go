@@ -3,8 +3,8 @@ package multierr
 import (
 	"fmt"
 
-	"github.com/sqlc-dev/sqlc/internal/source"
-	"github.com/sqlc-dev/sqlc/internal/sql/sqlerr"
+	"github.com/sharpvik/sqlc/internal/source"
+	"github.com/sharpvik/sqlc/internal/sql/sqlerr"
 )
 
 type FileError struct {

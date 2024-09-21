@@ -5,15 +5,15 @@ overrides:
       one: "ONE"
     overrides:
       - db_type: "text"
-        go_type: "github.com/sqlc-dev/sqlc-testdata/pkg.CustomType"
+        go_type: "github.com/sharpvik/sqlc-testdata/pkg.CustomType"
       - column: "overrides.three"
         go_type:
-          import: "github.com/sqlc-dev/sqlc-testdata/pkg"
+          import: "github.com/sharpvik/sqlc-testdata/pkg"
           type: "CustomType"
 sql:
-- schema: "../../../schema.sql"
-  queries: "../../../query.sql"
-  engine: "postgresql"
-  gen:
-    go: 
-      out: "db"
+  - schema: "../../../schema.sql"
+    queries: "../../../query.sql"
+    engine: "postgresql"
+    gen:
+      go:
+        out: "db"

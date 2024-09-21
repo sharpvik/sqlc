@@ -1,9 +1,9 @@
 # Migrating to sqlc-gen-kotlin
- 
+
 Starting in sqlc 1.16.0, built-in Kotlin support has been deprecated. It will
 be fully removed in 1.17.0 in favor of sqlc-gen-kotlin.
 
-This guide will walk you through migrating to the [sqlc-gen-kotlin](https://github.com/sqlc-dev/sqlc-gen-kotlin) plugin,
+This guide will walk you through migrating to the [sqlc-gen-kotlin](https://github.com/sharpvik/sqlc-gen-kotlin) plugin,
 which involves three steps.
 
 1. Add the sqlc-gen-kotlin plugin
@@ -33,10 +33,10 @@ already. Add the following configuration for the plugin:
 ```yaml
 version: "2"
 plugins:
-- name: "kt"
-  wasm:
-    url: "https://downloads.sqlc.dev/plugin/sqlc-gen-kotlin_1.0.0.wasm"
-    sha256: "7620dc5d462de41fdc90e2011232c842117b416c98fd5c163d27c5738431a45c"
+  - name: "kt"
+    wasm:
+      url: "https://downloads.sqlc.dev/plugin/sqlc-gen-kotlin_1.0.0.wasm"
+      sha256: "7620dc5d462de41fdc90e2011232c842117b416c98fd5c163d27c5738431a45c"
 ```
 
 ## Migrate each package
@@ -62,7 +62,7 @@ Your package configuration should currently looks something like this for JSON.
 Or this if you're using YAML.
 
 ```yaml
-  sql:
+sql:
   - schema: "schema.sql"
     queries: "query.sql"
     engine: "postgresql"
@@ -100,15 +100,15 @@ After you're done, it should look like this for JSON.
 Or this for YAML.
 
 ```yaml
-  sql:
+sql:
   - schema: "schema.sql"
     queries: "query.sql"
     engine: "postgresql"
     codegen:
-    - plugin: "kt"
-      out: "src/main/kotlin/com/example/foo"
-      options:
-        package: "com.example.foo"
+      - plugin: "kt"
+        out: "src/main/kotlin/com/example/foo"
+        options:
+          package: "com.example.foo"
 ```
 
 ## Re-generate the code

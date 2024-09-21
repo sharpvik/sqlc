@@ -5,8 +5,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/sqlc-dev/sqlc/internal/codegen/golang/opts"
-	"github.com/sqlc-dev/sqlc/internal/metadata"
+	"github.com/sharpvik/sqlc/internal/codegen/golang/opts"
+	"github.com/sharpvik/sqlc/internal/metadata"
 )
 
 type fileImports struct {
@@ -395,12 +395,18 @@ func (i *importer) queryImports(filename string) fileImports {
 	}
 
 	sqlpkg := parseDriver(i.Options.SqlPackage)
+	if sqlpkg.IsPGX() {
+		pkg[ImportSpec{Path: "github.com/jackc/pgx/v5"}] = struct{}{}
+	}
 	if sqlcSliceScan() && !sqlpkg.IsPGX() {
 		std["strings"] = struct{}{}
 	}
 	if sliceScan() && !sqlpkg.IsPGX() {
 		pkg[ImportSpec{Path: "github.com/lib/pq"}] = struct{}{}
 	}
+
+	pkg[ImportSpec{Path: "github.com/ai-up-ru/back/pgxrows"}] = struct{}{}
+	pkg[ImportSpec{Path: "github.com/sharpvik/fungi"}] = struct{}{}
 
 	return sortedImports(std, pkg)
 }

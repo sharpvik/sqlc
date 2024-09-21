@@ -10,24 +10,24 @@ version: "2"
 cloud:
   project: "<PROJECT_ID>"
 sql:
-- schema: "postgresql/schema.sql"
-  queries: "postgresql/query.sql"
-  engine: "postgresql"
-  gen:
-    go: 
-      package: "authors"
-      out: "postgresql"
-  database:
-    managed: true
-  rules:
-    - sqlc/db-prepare
-- schema: "mysql/schema.sql"
-  queries: "mysql/query.sql"
-  engine: "mysql"
-  gen:
-    go:
-      package: "authors"
-      out: "mysql"
+  - schema: "postgresql/schema.sql"
+    queries: "postgresql/query.sql"
+    engine: "postgresql"
+    gen:
+      go:
+        package: "authors"
+        out: "postgresql"
+    database:
+      managed: true
+    rules:
+      - sqlc/db-prepare
+  - schema: "mysql/schema.sql"
+    queries: "mysql/query.sql"
+    engine: "mysql"
+    gen:
+      go:
+        package: "authors"
+        out: "mysql"
 ```
 
 ### sql
@@ -69,24 +69,24 @@ The `codegen` mapping supports the following keys:
   - A mapping of plugin-specific options.
 
 ```yaml
-version: '2'
+version: "2"
 plugins:
-- name: py
-  wasm:
-    url: https://github.com/sqlc-dev/sqlc-gen-python/releases/download/v0.16.0-alpha/sqlc-gen-python.wasm
-    sha256: 428476c7408fd4c032da4ec74e8a7344f4fa75e0f98a5a3302f238283b9b95f2
+  - name: py
+    wasm:
+      url: https://github.com/sharpvik/sqlc-gen-python/releases/download/v0.16.0-alpha/sqlc-gen-python.wasm
+      sha256: 428476c7408fd4c032da4ec74e8a7344f4fa75e0f98a5a3302f238283b9b95f2
 sql:
-- schema: "schema.sql"
-  queries: "query.sql"
-  engine: postgresql
-  codegen:
-  - out: src/authors
-    plugin: py
-    options:
-      package: authors
-      emit_sync_querier: true
-      emit_async_querier: true
-      query_parameter_limit: 5
+  - schema: "schema.sql"
+    queries: "query.sql"
+    engine: postgresql
+    codegen:
+      - out: src/authors
+        plugin: py
+        options:
+          package: authors
+          emit_sync_querier: true
+          emit_async_querier: true
+          query_parameter_limit: 5
 ```
 
 ### database
@@ -103,17 +103,17 @@ syntax. In the following example, the connection string will have the value of
 the `PG_PASSWORD` environment variable set as its password.
 
 ```yaml
-version: '2'
+version: "2"
 sql:
-- schema: schema.sql
-  queries: query.sql
-  engine: postgresql
-  database:
-    uri: postgresql://postgres:${PG_PASSWORD}@localhost:5432/authors
-  gen:
-    go:
-      package: authors
-      out: postgresql
+  - schema: schema.sql
+    queries: query.sql
+    engine: postgresql
+    database:
+      uri: postgresql://postgres:${PG_PASSWORD}@localhost:5432/authors
+    gen:
+      go:
+        package: authors
+        out: postgresql
 ```
 
 ### analyzer
@@ -121,8 +121,8 @@ sql:
 The `analyzer` mapping supports the following keys:
 
 - `database`:
-  -  If false, do not use the configured database for query analysis. Defaults to `true`.
-  
+  - If false, do not use the configured database for query analysis. Defaults to `true`.
+
 ### gen
 
 The `gen` mapping supports the following keys:
@@ -199,7 +199,7 @@ The `gen` mapping supports the following keys:
 See [Overriding types](../howto/overrides.md) for an in-depth guide to using type overrides. Each mapping of the `overrides` collection has the following keys:
 
 - `db_type`:
-  - The PostgreSQL or MySQL type to override. Find the full list of supported types in [postgresql_type.go](https://github.com/sqlc-dev/sqlc/blob/main/internal/codegen/golang/postgresql_type.go#L12) or [mysql_type.go](https://github.com/sqlc-dev/sqlc/blob/main/internal/codegen/golang/mysql_type.go#L12). Note that for Postgres you must use the pg_catalog prefixed names where available. Can't be used if the `column` key is defined.
+  - The PostgreSQL or MySQL type to override. Find the full list of supported types in [postgresql_type.go](https://github.com/sharpvik/sqlc/blob/main/internal/codegen/golang/postgresql_type.go#L12) or [mysql_type.go](https://github.com/sharpvik/sqlc/blob/main/internal/codegen/golang/mysql_type.go#L12). Note that for Postgres you must use the pg_catalog prefixed names where available. Can't be used if the `column` key is defined.
 - `column`:
   - In case the type overriding should be done on specific a column of a table instead of a type. `column` should be of the form `table.column` but you can be even more specific by specifying `schema.table.column` or `catalog.schema.table.column`. Can't be used if the `db_type` key is defined.
 - `go_type`:
@@ -225,7 +225,7 @@ For more complicated import paths, the `go_type` can also be an object with the 
 
 #### kotlin
 
-> Removed in v1.17.0 and replaced by the [sqlc-gen-kotlin](https://github.com/sqlc-dev/sqlc-gen-kotlin) plugin. Follow the [migration guide](../guides/migrating-to-sqlc-gen-kotlin) to switch.
+> Removed in v1.17.0 and replaced by the [sqlc-gen-kotlin](https://github.com/sharpvik/sqlc-gen-kotlin) plugin. Follow the [migration guide](../guides/migrating-to-sqlc-gen-kotlin) to switch.
 
 - `package`:
   - The package name to use for the generated code.
@@ -236,7 +236,7 @@ For more complicated import paths, the `go_type` can also be an object with the 
 
 #### python
 
-> Removed in v1.17.0 and replaced by the [sqlc-gen-python](https://github.com/sqlc-dev/sqlc-gen-python) plugin. Follow the [migration guide](../guides/migrating-to-sqlc-gen-python) to switch.
+> Removed in v1.17.0 and replaced by the [sqlc-gen-python](https://github.com/sharpvik/sqlc-gen-python) plugin. Follow the [migration guide](../guides/migrating-to-sqlc-gen-python) to switch.
 
 - `package`:
   - The package name to use for the generated code.
@@ -276,19 +276,19 @@ Each mapping in the `plugins` collection has the following keys:
     - The URL to fetch the WASM file. Supports the `https://` or `file://` schemes.
   - `sha256`
     - The SHA256 checksum for the downloaded file.
-   
+
 ```yaml
 version: "2"
 plugins:
-- name: "py"
-  wasm: 
-    url: "https://github.com/sqlc-dev/sqlc-gen-python/releases/download/v0.16.0-alpha/sqlc-gen-python.wasm"
-    sha256: "428476c7408fd4c032da4ec74e8a7344f4fa75e0f98a5a3302f238283b9b95f2"
-- name: "js"
-  env:
-  - PATH
-  process: 
-    cmd: "sqlc-gen-json"
+  - name: "py"
+    wasm:
+      url: "https://github.com/sharpvik/sqlc-gen-python/releases/download/v0.16.0-alpha/sqlc-gen-python.wasm"
+      sha256: "428476c7408fd4c032da4ec74e8a7344f4fa75e0f98a5a3302f238283b9b95f2"
+  - name: "js"
+    env:
+      - PATH
+    process:
+      cmd: "sqlc-gen-json"
 ```
 
 ### rules
@@ -304,7 +304,7 @@ Each mapping in the `rules` collection has the following keys:
 
 See the [vet](../howto/vet.md) documentation for a list of built-in rules and
 help writing custom rules.
-   
+
 ```yaml
 version: "2"
 sql:
@@ -338,11 +338,11 @@ rules:
     rule: |
       query.cmd == "exec"
 ```
-  
+
 ### Global overrides
 
 Sometimes, the same configuration must be done across various specifications of
-code generation.  Then a global definition for type overriding and field
+code generation. Then a global definition for type overriding and field
 renaming can be done using the `overrides` mapping the following manner:
 
 ```yaml
@@ -360,27 +360,27 @@ overrides:
           package: "null"
           type: "Time"
 sql:
-- schema: "postgresql/schema.sql"
-  queries: "postgresql/query.sql"
-  engine: "postgresql"
-  gen:
-    go: 
-      package: "authors"
-      out: "postgresql"
-- schema: "mysql/schema.sql"
-  queries: "mysql/query.sql"
-  engine: "mysql"
-  gen:
-    go:
-      package: "authors"
-      out: "mysql"
+  - schema: "postgresql/schema.sql"
+    queries: "postgresql/query.sql"
+    engine: "postgresql"
+    gen:
+      go:
+        package: "authors"
+        out: "postgresql"
+  - schema: "mysql/schema.sql"
+    queries: "mysql/query.sql"
+    engine: "mysql"
+    gen:
+      go:
+        package: "authors"
+        out: "mysql"
 ```
 
 With the previous configuration, whenever a struct field is generated from a
 table column that is called `id`, it will generated as `Identifier`.
 
 Also, whenever there is a nullable `timestamp with time zone` column in a
-Postgres table, it will be generated as `null.Time`.  Note that the mapping for
+Postgres table, it will be generated as `null.Time`. Note that the mapping for
 global type overrides has a field called `engine` that is absent in the regular
 type overrides. This field is only used when there are multiple definitions
 using multiple engines. Otherwise, the value of the `engine` key
@@ -509,7 +509,7 @@ overrides:
 Each override document has the following keys:
 
 - `db_type`:
-  - The PostgreSQL or MySQL type to override. Find the full list of supported types in [postgresql_type.go](https://github.com/sqlc-dev/sqlc/blob/main/internal/codegen/golang/postgresql_type.go#L12) or [mysql_type.go](https://github.com/sqlc-dev/sqlc/blob/main/internal/codegen/golang/mysql_type.go#L12). Note that for Postgres you must use the pg_catalog prefixed names where available.
+  - The PostgreSQL or MySQL type to override. Find the full list of supported types in [postgresql_type.go](https://github.com/sharpvik/sqlc/blob/main/internal/codegen/golang/postgresql_type.go#L12) or [mysql_type.go](https://github.com/sharpvik/sqlc/blob/main/internal/codegen/golang/mysql_type.go#L12). Note that for Postgres you must use the pg_catalog prefixed names where available.
 - `go_type`:
   - A fully qualified name to a Go type to use in the generated code.
 - `go_struct_tag`:

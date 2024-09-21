@@ -11,8 +11,8 @@
   ],
   "overrides": [
     {
-    "column": "foo.mystr",
-    "go_type": "github.com/sqlc-dev/sqlc-testdata/mysql.ID"
+      "column": "foo.mystr",
+      "go_type": "github.com/sharpvik/sqlc-testdata/mysql.ID"
     }
   ]
 }

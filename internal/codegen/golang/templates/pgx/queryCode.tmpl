@@ -45,32 +45,22 @@ func (q *Queries) {{.MethodName}}(ctx context.Context, {{.Arg.Pair}}) ({{.Ret.De
 {{range .Comments}}//{{.}}
 {{end -}}
 {{- if $.EmitMethodsWithDBArgument -}}
-func (q *Queries) {{.MethodName}}(ctx context.Context, db DBTX, {{.Arg.Pair}}) ([]{{.Ret.DefineType}}, error) {
+func (q *Queries) {{.MethodName}}(ctx context.Context, db DBTX, {{.Arg.Pair}}) (fungi.Stream[{{.Ret.DefineType}}], error) {
 	rows, err := db.Query(ctx, {{.ConstantName}}, {{.Arg.Params}})
 {{- else -}}
-func (q *Queries) {{.MethodName}}(ctx context.Context, {{.Arg.Pair}}) ([]{{.Ret.DefineType}}, error) {
+func (q *Queries) {{.MethodName}}(ctx context.Context, {{.Arg.Pair}}) (fungi.Stream[{{.Ret.DefineType}}], error) {
 	rows, err := q.db.Query(ctx, {{.ConstantName}}, {{.Arg.Params}})
 {{- end}}
 	if err != nil {
 		return nil, err
 	}
-	defer rows.Close()
-	{{- if $.EmitEmptySlices}}
-	items := []{{.Ret.DefineType}}{}
-	{{else}}
-	var items []{{.Ret.DefineType}}
-	{{end -}}
-	for rows.Next() {
-		var {{.Ret.Name}} {{.Ret.Type}}
-		if err := rows.Scan({{.Ret.Scan}}); err != nil {
-			return nil, err
-		}
-		items = append(items, {{.Ret.ReturnName}})
-	}
-	if err := rows.Err(); err != nil {
-		return nil, err
-	}
-	return items, nil
+	
+	return pgxrows.Stream(rows,
+		func(rows pgx.Rows) ({{.Ret.Name}} {{.Ret.Type}}, err error) {
+			err = rows.Scan({{.Ret.Scan}})
+			return
+		},
+	), nil
 }
 {{end}}
 

@@ -19,7 +19,7 @@ sudo snap install sqlc
 Installing recent versions of sqlc requires Go 1.21+.
 
 ```
-go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
+go install github.com/sharpvik/sqlc/cmd/sqlc@latest
 ```
 
 ## Docker
@@ -42,7 +42,7 @@ docker run --rm -v "%cd%:/src" -w /src sqlc/sqlc generate
 
 ## Downloads
 
-Get pre-built binaries for *v1.27.0*:
+Get pre-built binaries for _v1.27.0_:
 
 - [Linux](https://downloads.sqlc.dev/sqlc_1.27.0_linux_amd64.tar.gz)
 - [macOS](https://downloads.sqlc.dev/sqlc_1.27.0_darwin_amd64.zip)

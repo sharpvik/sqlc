@@ -1,9 +1,9 @@
 # Migrating to sqlc-gen-python
- 
+
 Starting in sqlc 1.16.0, built-in Python support has been deprecated. It will
 be fully removed in 1.17.0 in favor of sqlc-gen-python.
 
-This guide will walk you through migrating to the [sqlc-gen-python](https://github.com/sqlc-dev/sqlc-gen-python) plugin,
+This guide will walk you through migrating to the [sqlc-gen-python](https://github.com/sharpvik/sqlc-gen-python) plugin,
 which involves three steps.
 
 1. Add the sqlc-gen-python plugin
@@ -65,7 +65,7 @@ Your package configuration should currently looks something like this for JSON.
 Or this if you're using YAML.
 
 ```yaml
-  sql:
+sql:
   - schema: "schema.sql"
     queries: "query.sql"
     engine: "postgresql"
@@ -109,18 +109,18 @@ After you're done, it should look like this for JSON.
 Or this for YAML.
 
 ```yaml
-  sql:
+sql:
   - schema: "schema.sql"
     queries: "query.sql"
     engine: "postgresql"
     codegen:
-    - plugin: "py"
-      out: "src"
-      options:
-        package: "foo"
-        emit_sync_querier: true
-        emit_async_querier: true
-        query_parameter_limit: 5
+      - plugin: "py"
+        out: "src"
+        options:
+          package: "foo"
+          emit_sync_querier: true
+          emit_async_querier: true
+          query_parameter_limit: 5
 ```
 
 ## Re-generate the code

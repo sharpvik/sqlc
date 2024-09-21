@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/sqlc-dev/sqlc/internal/sql/sqlpath"
+	"github.com/sharpvik/sqlc/internal/sql/sqlpath"
 )
 
 func SQLite(t *testing.T, migrations []string) (*sql.DB, func()) {

@@ -7,9 +7,9 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
-	"github.com/sqlc-dev/sqlc/internal/config"
-	pb "github.com/sqlc-dev/sqlc/internal/quickdb/v1"
-	"github.com/sqlc-dev/sqlc/internal/rpc"
+	"github.com/sharpvik/sqlc/internal/config"
+	pb "github.com/sharpvik/sqlc/internal/quickdb/v1"
+	"github.com/sharpvik/sqlc/internal/rpc"
 )
 
 const defaultHostname = "grpc.sqlc.dev"

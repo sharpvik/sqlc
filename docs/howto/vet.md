@@ -1,13 +1,13 @@
 # `vet` - Linting queries
 
-*Added in v1.19.0*
+_Added in v1.19.0_
 
 `sqlc vet` runs queries through a set of lint rules.
 
 Rules are defined in the `sqlc` [configuration](../reference/config) file. They
 consist of a name, message, and a [Common Expression Language
 (CEL)](https://github.com/google/cel-spec) expression. Expressions are evaluated
-using [cel-go](https://github.com/google/cel-go).  If an expression evaluates to
+using [cel-go](https://github.com/google/cel-go). If an expression evaluates to
 `true`, `sqlc vet` will report an error using the given message.
 
 ## Defining lint rules
@@ -29,7 +29,7 @@ message Query
   // SQL body
   string sql = 1;
   // Name of the query
-  string name = 2; 
+  string name = 2;
   // One of "many", "one", "exec", etc.
   string cmd = 3;
   // Query parameters, if any
@@ -90,7 +90,7 @@ rules:
 
 ### Rules using `EXPLAIN ...` output
 
-*Added in v1.20.0*
+_Added in v1.20.0_
 
 The CEL expression environment has two variables containing `EXPLAIN ...` output,
 `postgresql.explain` and `mysql.explain`. `sqlc` only populates the variable associated with
@@ -123,20 +123,21 @@ to offer generic examples. Refer to the
 information.
 
 ```yaml
-...
+
+---
 rules:
-- name: postgresql-query-too-costly
-  message: "Query cost estimate is too high"
-  rule: "postgresql.explain.plan.total_cost > 1.0"
-- name: postgresql-no-seq-scan
-  message: "Query plan results in a sequential scan"
-  rule: "postgresql.explain.plan.node_type == 'Seq Scan'"
-- name: mysql-query-too-costly
-  message: "Query cost estimate is too high"
-  rule: "has(mysql.explain.query_block.cost_info) && double(mysql.explain.query_block.cost_info.query_cost) > 2.0"
-- name: mysql-must-use-primary-key
-  message: "Query plan doesn't use primary key"
-  rule: "has(mysql.explain.query_block.table.key) && mysql.explain.query_block.table.key != 'PRIMARY'"
+  - name: postgresql-query-too-costly
+    message: "Query cost estimate is too high"
+    rule: "postgresql.explain.plan.total_cost > 1.0"
+  - name: postgresql-no-seq-scan
+    message: "Query plan results in a sequential scan"
+    rule: "postgresql.explain.plan.node_type == 'Seq Scan'"
+  - name: mysql-query-too-costly
+    message: "Query cost estimate is too high"
+    rule: "has(mysql.explain.query_block.cost_info) && double(mysql.explain.query_block.cost_info.query_cost) > 2.0"
+  - name: mysql-must-use-primary-key
+    message: "Query plan doesn't use primary key"
+    rule: "has(mysql.explain.query_block.table.key) && mysql.explain.query_block.table.key != 'PRIMARY'"
 ```
 
 When building rules that depend on `EXPLAIN ...` output, it may be helpful to see the actual JSON
@@ -159,8 +160,8 @@ sql:
     rules:
       - debug
 rules:
-- name: debug
-  rule: "!has(postgresql.explain)" # A dummy rule to trigger explain
+  - name: debug
+    rule: "!has(postgresql.explain)" # A dummy rule to trigger explain
 ```
 
 Please note that databases configured with a `uri` must have an up-to-date
@@ -223,7 +224,7 @@ sql:
 ```
 
 To see this in action, check out the [authors
-example](https://github.com/sqlc-dev/sqlc/blob/main/examples/authors/sqlc.yaml).
+example](https://github.com/sharpvik/sqlc/blob/main/examples/authors/sqlc.yaml).
 
 ## Running lint rules
 

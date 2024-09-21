@@ -8,14 +8,14 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/sqlc-dev/sqlc/internal/migrations"
-	"github.com/sqlc-dev/sqlc/internal/multierr"
-	"github.com/sqlc-dev/sqlc/internal/opts"
-	"github.com/sqlc-dev/sqlc/internal/rpc"
-	"github.com/sqlc-dev/sqlc/internal/source"
-	"github.com/sqlc-dev/sqlc/internal/sql/ast"
-	"github.com/sqlc-dev/sqlc/internal/sql/sqlerr"
-	"github.com/sqlc-dev/sqlc/internal/sql/sqlpath"
+	"github.com/sharpvik/sqlc/internal/migrations"
+	"github.com/sharpvik/sqlc/internal/multierr"
+	"github.com/sharpvik/sqlc/internal/opts"
+	"github.com/sharpvik/sqlc/internal/rpc"
+	"github.com/sharpvik/sqlc/internal/source"
+	"github.com/sharpvik/sqlc/internal/sql/ast"
+	"github.com/sharpvik/sqlc/internal/sql/sqlerr"
+	"github.com/sharpvik/sqlc/internal/sql/sqlpath"
 )
 
 // TODO: Rename this interface Engine
