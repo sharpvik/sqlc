@@ -405,7 +405,7 @@ func (i *importer) queryImports(filename string) fileImports {
 		pkg[ImportSpec{Path: "github.com/lib/pq"}] = struct{}{}
 	}
 
-	pkg[ImportSpec{Path: "github.com/ai-up-ru/back/pgxrows"}] = struct{}{}
+	pkg[ImportSpec{Path: "github.com/sharpvik/pgxrows"}] = struct{}{}
 	pkg[ImportSpec{Path: "github.com/sharpvik/fungi"}] = struct{}{}
 
 	return sortedImports(std, pkg)
